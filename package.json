@@ -10,6 +10,14 @@
     "security",
     "audit"
   ],
+  "homepage": "https://github.com/Karthick1242004/skillhangar#readme",
+  "bugs": {
+    "url": "https://github.com/Karthick1242004/skillhangar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karthick1242004/skillhangar.git"
+  },
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -17,6 +25,7 @@
   },
   "files": [
     "dist",
+    "!dist/**/*.map",
     "skill",
     "README.md",
     "LICENSE"
@@ -33,7 +42,8 @@
     "dev:ui": "vite --config ui/vite.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p ui/tsconfig.json --noEmit",
     "test": "vitest run",
-    "check": "npm run typecheck && npm run test && npm run build"
+    "check": "npm run typecheck && npm run test && npm run build",
+    "prepublishOnly": "npm run check"
   },
   "dependencies": {
     "@hono/node-server": "2.1.8",

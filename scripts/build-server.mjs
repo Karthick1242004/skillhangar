@@ -1,7 +1,7 @@
 // Bundles the CLI, server and usage hook into dist/ as ESM. Runtime dependencies stay external
 // (they install with the package); code splitting keeps `skillhangar scan` from loading the server.
 import { build, context } from 'esbuild';
-import { readFile, chmod } from 'node:fs/promises';
+import { chmod, readdir, readFile, rm } from 'node:fs/promises';
 
 const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
 const watch = process.argv.includes('--watch');
@@ -22,6 +22,12 @@ const options = {
   banner: { js: '#!/usr/bin/env node' },
   logLevel: 'info',
 };
+
+// esbuild never deletes old output, and chunk names carry a content hash, so stale chunks pile up and
+// would ship in the package. Clear everything in dist/ except the UI build before each build.
+for (const entry of await readdir('dist').catch(() => [])) {
+  if (entry !== 'ui') await rm(`dist/${entry}`, { recursive: true, force: true });
+}
 
 if (watch) {
   const ctx = await context(options);
