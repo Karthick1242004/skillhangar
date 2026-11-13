@@ -7,7 +7,7 @@ each one came from, audits it for safety, and installs, updates, disables or rol
 npx -y skillhangar
 ```
 
-Unofficial. Not affiliated with Anthropic.
+Unofficial. Not affiliated with Anthropic. Site: https://skillhangar.vercel.app
 
 ## What it does
 

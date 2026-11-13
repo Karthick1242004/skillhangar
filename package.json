@@ -10,7 +10,7 @@
     "security",
     "audit"
   ],
-  "homepage": "https://github.com/Karthick1242004/skillhangar#readme",
+  "homepage": "https://skillhangar.vercel.app",
   "bugs": {
     "url": "https://github.com/Karthick1242004/skillhangar/issues"
   },
@@ -43,7 +43,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p ui/tsconfig.json --noEmit",
     "test": "vitest run",
     "check": "npm run typecheck && npm run test && npm run build",
-    "prepublishOnly": "npm run check"
+    "prepublishOnly": "npm run check",
+    "deploy:site": "npm run build:site && cd site/dist && npx -y vercel@65.15.0 link --yes --project skillhangar && npx -y vercel@65.15.0 deploy --prod --yes"
   },
   "dependencies": {
     "@hono/node-server": "2.1.8",
