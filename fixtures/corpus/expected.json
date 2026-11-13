@@ -1,0 +1,36 @@
+{
+ "malicious": {
+  "mal-bidi": "bidi-control",
+  "mal-tags": "unicode-tags",
+  "mal-zero-width": "zero-width",
+  "mal-html-comment": "html-comment-instruction",
+  "mal-override": "override-instructions",
+  "mal-conceal": "conceal-from-user",
+  "mal-audit-evasion": "audit-evasion",
+  "mal-pipe-shell": "pipe-to-shell",
+  "mal-remote-eval": "remote-eval",
+  "mal-unpinned": "unpinned-npx",
+  "mal-credentials": "credential-access",
+  "mal-env-dump": "env-dump",
+  "mal-secret": "hardcoded-secret",
+  "mal-exfil-endpoint": "exfil-endpoint",
+  "mal-secret-network": "secret-plus-network",
+  "mal-eval-decoded": "eval-decoded",
+  "mal-base64-blob": "base64-blob",
+  "mal-config-write": "agent-config-write",
+  "mal-shell-profile": "shell-profile-write",
+  "mal-scheduled": "scheduled-task",
+  "mal-destructive": "destructive-delete",
+  "mal-inline-shell": "inline-shell",
+  "mal-bypass": "permission-bypass",
+  "mal-allowed-bash": "allowed-tools-bash",
+  "mal-hooks": "frontmatter-hooks",
+  "mal-symlink": "symlink-escape"
+ },
+ "benign": [
+  "ok-plain",
+  "ok-script",
+  "ok-pinned",
+  "ok-data-uri"
+ ]
+}
